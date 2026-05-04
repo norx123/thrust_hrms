@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--  Salary Structure list view -->
+<!--  Salary Structure list views -->
         <record id="hr_payroll_structure_view_tree" model="ir.ui.view">
             <field name="name">hr.payroll.structure.view.list</field>
             <field name="model">hr.payroll.structure</field>
@@ -15,7 +15,7 @@
                 </list>
             </field>
         </record>
-    <!--  Salary Structure kanban view -->
+    <!--  Salary Structure kanban views -->
         <record id="hr_payroll_structure_view_kanban" model="ir.ui.view">
             <field name="name">hr.payroll.structure.view.kanban</field>
             <field name="model">hr.payroll.structure</field>
@@ -68,7 +68,7 @@
                 </search>
             </field>
         </record>
-    <!--  Salary Structure form view -->
+    <!--  Salary Structure form views -->
         <record id="hr_payroll_structure_view_form" model="ir.ui.view">
             <field name="name">hr.payroll.structure.view.form</field>
             <field name="model">hr.payroll.structure</field>

@@ -12,7 +12,7 @@
                 </search>
             </field>
         </record>
-    <!-- Hr Contribution Register form view -->
+    <!-- Hr Contribution Register form views -->
         <record id="hr_contribution_register_view_form" model="ir.ui.view">
             <field name="name">hr.contribution.register.view.form</field>
             <field name="model">hr.contribution.register</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Salary Categories form view-->
+    <!-- Salary Categories form views-->
     <record id="hr_salary_rule_category_view_form" model="ir.ui.view">
         <field name="name">hr.salary.rule.category.view.form</field>
         <field name="model">hr.salary.rule.category</field>
@@ -17,7 +17,7 @@
             </form>
         </field>
     </record>
-        <!-- Salary Categories tree view-->
+        <!-- Salary Categories tree views-->
     <record id="hr_salary_rule_category_view_tree" model="ir.ui.view">
         <field name="name">hr.salary.rule.category.view.list</field>
         <field name="model">hr.salary.rule.category</field>
@@ -40,7 +40,7 @@
             </search>
         </field>
     </record>
-    <!-- Menu action forSalary Categories form view-->
+    <!-- Menu action forSalary Categories form views-->
     <record id="hr_salary_rule_category_action"
             model="ir.actions.act_window">
         <field name="name">Salary Rule Categories</field>

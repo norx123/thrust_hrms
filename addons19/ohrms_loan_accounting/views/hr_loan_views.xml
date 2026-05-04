@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Added some additional buttons on the loan request form view -->
+    <!-- Added some additional buttons on the loan request form views -->
     <record id="hr_loan_view_form" model="ir.ui.view">
         <field name="name">hr.loan.view.form.inherit.ohrms.loan.accounting</field>
         <field name="model">hr.loan</field>

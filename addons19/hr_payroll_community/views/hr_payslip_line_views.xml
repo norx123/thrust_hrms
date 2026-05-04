@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--  Payslip Line list view  -->
+<!--  Payslip Line list views  -->
     <record id="hr_payslip_line_view_tree" model="ir.ui.view">
         <field name="name">hr.payslip.line.view.list</field>
         <field name="model">hr.payslip.line</field>
@@ -21,7 +21,7 @@
             </list>
         </field>
     </record>
-    <!--  Payslip Line form view  -->
+    <!--  Payslip Line form views  -->
     <record id="hr_payslip_line_view_form" model="ir.ui.view">
         <field name="name">hr.payslip.line.view.form</field>
         <field name="model">hr.payslip.line</field>

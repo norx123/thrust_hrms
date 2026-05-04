@@ -40,3 +40,4 @@ class HrContractAdvantageTemplate(models.Model):
                                     "for this advantage")
     default_value = fields.Float(string="Default Value",
                                  help='Default value for this advantage')
+

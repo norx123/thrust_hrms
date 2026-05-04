@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!--    Form view of salary advance.-->
+    <!--    Form views of salary advance.-->
     <record id="salary_advance_view_form" model="ir.ui.view">
         <field name="name">salary.advance.view.form</field>
         <field name="model">salary.advance</field>
@@ -79,7 +79,7 @@
             </form>
         </field>
     </record>
-    <!--    List view of salary advance-->
+    <!--    List views of salary advance-->
     <record model="ir.ui.view" id="salary_advance_view_tree">
         <field name="name">salary.advance.view.list</field>
         <field name="model">salary.advance</field>
@@ -92,7 +92,7 @@
             </list>
         </field>
     </record>
-    <!--  Search view of salary advance.-->
+    <!--  Search views of salary advance.-->
     <record id="salary_advance_view_search" model="ir.ui.view">
         <field name="name">salary.advance.view.search</field>
         <field name="model">salary.advance</field>
@@ -122,7 +122,7 @@
             </search>
         </field>
     </record>
-    <!--   Window action to view own all records.-->
+    <!--   Window action to views own all records.-->
     <record id="salary_advance_own_action" model="ir.actions.act_window">
         <field name="name">Salary Advance</field>
         <field name="type">ir.actions.act_window</field>
@@ -137,7 +137,7 @@
             </p>
         </field>
     </record>
-    <!--   Window action to view own request approved records.-->
+    <!--   Window action to views own request approved records.-->
     <record id="salary_advance_own_request_approved_action"
             model="ir.actions.act_window">
         <field name="name">Salary Advance</field>
@@ -153,7 +153,7 @@
             </p>
         </field>
     </record>
-    <!--   Window action to view records to approve.-->
+    <!--   Window action to views records to approve.-->
     <record id="salary_advance_to_approve_action" model="ir.actions.act_window">
         <field name="name">Salary Advance</field>
         <field name="type">ir.actions.act_window</field>

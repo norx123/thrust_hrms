@@ -40,7 +40,7 @@ class HrEmployee(models.Model):
                 [('employee_ref_id', '=', rec.id)])
 
     def action_document_view(self):
-        """ Opens a view to list all documents related to the current
+        """ Opens a views to list all documents related to the current
          employee."""
         self.ensure_one()
         return {

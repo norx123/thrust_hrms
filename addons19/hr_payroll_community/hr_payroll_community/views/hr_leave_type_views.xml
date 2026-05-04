@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <!-- Hr Leave Type form view -->
+        <!-- Hr Leave Type form views -->
         <record id="edit_holiday_status_form" model="ir.ui.view">
             <field name="name">hr_leave_type.view.form.inherit.hr.payroll.community</field>
             <field name="model">hr.leave.type</field>

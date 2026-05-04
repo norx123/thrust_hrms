@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Customizing the hr.salary.rule form view to include additional
+    <!-- Customizing the hr.salary.rule form views to include additional
      fields in the 'Accounting' section. -->
     <record id="hr_salary_rule_view_form" model="ir.ui.view">
         <field name="name">hr.salary.rule.view.form.inherit.hr.payroll.account.community</field>

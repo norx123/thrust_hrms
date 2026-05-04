@@ -1,0 +1,10 @@
+<odoo>
+    <menuitem id="menu_employee_sign_root"
+              name="Employee Sign"
+              sequence="10"/>
+
+    <menuitem id="menu_employee_sign_template"
+              name="Templates"
+              parent="menu_employee_sign_root"
+              action="action_employee_sign_template"/>
+</odoo>

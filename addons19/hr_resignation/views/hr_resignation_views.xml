@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!--Tree view for the 'hr.resignation' model.-->
+    <!--Tree views for the 'hr.resignation' model.-->
     <record id="hr_resignation_view_tree" model="ir.ui.view">
         <field name="name">hr.resignation.view.tree</field>
         <field name="model">hr.resignation</field>
@@ -19,7 +19,7 @@
             </list>
         </field>
     </record>
-    <!--Form view for the 'hr.resignation' model.-->
+    <!--Form views for the 'hr.resignation' model.-->
     <record id="hr_resignation_view_form" model="ir.ui.view">
         <field name="name">hr.resignation.view.form</field>
         <field name="model">hr.resignation</field>

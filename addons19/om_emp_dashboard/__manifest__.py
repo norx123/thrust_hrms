@@ -9,7 +9,7 @@ Employee Dashboard
 ==================
 A custom dashboard module that provides:
 
-* Interactive calendar view of daily work hours per employee
+* Interactive calendar views of daily work hours per employee
 * KPI cards for today's status, check-in/out, hours, working days
 * Holiday management with calendar integration
 * Upcoming celebrations (birthdays and work anniversaries)

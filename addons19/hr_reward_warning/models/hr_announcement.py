@@ -77,7 +77,7 @@ class HrAnnouncement(models.Model):
                                     string='Job Positions',
                                     help="Position of the employee "
                                          "who is authorized "
-                                         "to view this announcements.")
+                                         "to views this announcements.")
     announcement = fields.Html(string='Letter', help="Announcement message")
     date_start = fields.Date(string='Start Date', default=fields.Date.today(),
                              required=True, help="Start date of announcement")

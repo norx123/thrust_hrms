@@ -22,7 +22,7 @@ class ReminderMenu extends Component {
         const data= await rpc("/hr_reminder/all_reminder")
         this.state.all_remainders = data
     }
-//    Function to work when clicked on the view button from systray
+//    Function to work when clicked on the views button from systray
     async reminderActive(ev){
         ev.stopPropagation();
         ev.preventDefault();

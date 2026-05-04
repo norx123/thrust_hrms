@@ -572,7 +572,7 @@ export class HrDashboard extends Component{
         console.log("this:", this)
         if (this.isHrManager) {
 
-            // Call the Python function to get the view ID
+            // Call the Python function to get the views ID
             const view_id = await this.orm.call(
                 'hr.version',
                 'get_hr_version_list_view_id',

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--Added smart button for viewing loan of the current employee on employee form view  -->
+    <!--Added smart button for viewing loan of the current employee on employee form views  -->
     <record id="view_employee_form" model="ir.ui.view">
         <field name="name">hr.employee.view.form.inherit.ohrms.loan</field>
         <field name="model">hr.employee</field>

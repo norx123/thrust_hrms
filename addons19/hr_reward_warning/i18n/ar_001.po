@@ -387,7 +387,7 @@ msgstr "عدد الرسائل مع خطأ التسليم"
 
 #. module: hr_reward_warning
 #: model:ir.model.fields,help:hr_reward_warning.field_hr_announcement__position_ids
-msgid "Position of the employee who is authorized to view this announcements."
+msgid "Position of the employee who is authorized to views this announcements."
 msgstr "موقف الموظف المخول بالاطلاع على ذلك."
 
 #. module: hr_reward_warning

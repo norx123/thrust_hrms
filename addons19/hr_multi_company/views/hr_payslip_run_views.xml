@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--  Inherited form view of hr_payslip_run for adding company.  -->
+    <!--  Inherited form views of hr_payslip_run for adding company.  -->
     <record id="hr_payslip_run_view_form" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.form.inherit.hr.multi.company
         </field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--Form view for Contribution Register's Payslip Lines-->
+    <!--Form views for Contribution Register's Payslip Lines-->
     <record id="payslip_lines_contribution_register_view_form" model="ir.ui.view">
         <field name="name">payslip.lines.contribution.register.view.form</field>
         <field name="model">payslip.lines.contribution.register</field>

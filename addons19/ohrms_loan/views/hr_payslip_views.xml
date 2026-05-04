@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inherited the hr_payslip form view to add 'loan_line_id' field within the 'input_line_ids' tree. -->
+    <!-- Inherited the hr_payslip form views to add 'loan_line_id' field within the 'input_line_ids' tree. -->
     <record id="view_hr_payslip_form" model="ir.ui.view">
         <field name="name">hr.payslip.view.form.inherit.ohrms.loan</field>
         <field name="model">hr.payslip</field>

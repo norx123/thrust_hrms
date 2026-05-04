@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Customizing the hr.payslip form view to include additional
+    <!-- Customizing the hr.payslip form views to include additional
     fields after the 'paid' field. -->
     <record model="ir.ui.view" id="hr_payslip_view_form">
         <field name="name">hr.payslip.view.form.inherit.hr.payroll.account.community</field>

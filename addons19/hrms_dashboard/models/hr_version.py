@@ -27,11 +27,11 @@ class HrVersion(models.Model):
 
     @api.model
     def get_hr_version_list_view_id(self):
-        """Return the ID of the hr.version list/tree view for dashboard actions"""
+        """Return the ID of the hr.version list/tree views for dashboard actions"""
         view = self.env.ref('hr.hr_version_list_view', raise_if_not_found=False)
         if view:
             return view.id
-        view = self.env['ir.ui.view'].search([
+        view = self.env['ir.ui.views'].search([
             ('model', '=', 'hr.version'),
             ('type', '=', 'list')
         ], limit=1)

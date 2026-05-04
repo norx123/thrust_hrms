@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!-- Hr Contract Advantage Template form view -->
+<!-- Hr Contract Advantage Template form views -->
     <record id="hr_contract_advantage_template_view_form" model="ir.ui.view">
         <field name="name">hr.contract.advantage.template.view.form</field>
         <field name="model">hr.contract.advantage.template</field>
@@ -28,7 +28,7 @@
             </form>
         </field>
     </record>
-    <!-- Hr Contract Advantage Template list view -->
+    <!-- Hr Contract Advantage Template list views -->
     <record id="hr_contract_advantage_template_view_tree" model="ir.ui.view">
         <field name="name">hr.contract.advantage.template.view.list</field>
         <field name="model">hr.contract.advantage.template</field>

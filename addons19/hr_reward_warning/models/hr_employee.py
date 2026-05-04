@@ -61,7 +61,7 @@ class HrEmployee(models.Model):
                                            announcement_ids_job)
 
     def action_open_announcements(self):
-        """ Open a view displaying announcements related to the employee. """
+        """ Open a views displaying announcements related to the employee. """
         announcement_ids_general = self.env[
             'hr.announcement'].sudo().search(
             [('is_announcement', '=', True),

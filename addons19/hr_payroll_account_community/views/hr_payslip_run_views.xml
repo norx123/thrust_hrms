@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Customizing the hr.payslip.run search view to include a filter for the 'journal_id' field.-->
+    <!-- Customizing the hr.payslip.run search views to include a filter for the 'journal_id' field.-->
     <record id="hr_payslip_run_search" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.search.inherit.hr.payroll.account.community</field>
         <field name="model">hr.payslip.run</field>
@@ -12,7 +12,7 @@
             </filter>
         </field>
     </record>
-    <!-- Customizing the hr.payslip.run list view to include the 'journal_id' field after the 'date_end' field. -->
+    <!-- Customizing the hr.payslip.run list views to include the 'journal_id' field after the 'date_end' field. -->
     <record id="hr_payslip_run_view_tree" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.list.inherit.hr.payroll.account.community</field>
         <field name="model">hr.payslip.run</field>
@@ -24,7 +24,7 @@
             </field>
         </field>
     </record>
-    <!-- Customizing the hr.payslip.run form view to include the 'journal_id' field before the 'credit_note' field. -->
+    <!-- Customizing the hr.payslip.run form views to include the 'journal_id' field before the 'credit_note' field. -->
     <record id="hr_payslip_run_view_form" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.form.inherit.hr.payroll.account.community</field>
         <field name="model">hr.payslip.run</field>

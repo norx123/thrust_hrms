@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-<!-- Form view of ir_ui_menu model with sequence field-->
+<!-- Form views of ir_ui_menu model with sequence field-->
     <record id="edit_menu_access" model="ir.ui.view">
         <field name="name">ir.ui.menu.view.form.inherit.ohrms.core</field>
         <field name="model">ir.ui.menu</field>

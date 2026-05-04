@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-        <!-- Search view of payslip runs -->
+        <!-- Search views of payslip runs -->
     <record id="hr_payslip_run_search" model="ir.ui.view">
         <field name="name">hr.payslip.run.search</field>
         <field name="model">hr.payslip.run</field>
@@ -18,7 +18,7 @@
             </search>
         </field>
     </record>
-<!--    List view of hr_payslip_run-->
+<!--    List views of hr_payslip_run-->
     <record id="hr_payslip_run_view_tree" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.list</field>
         <field name="model">hr.payslip.run</field>
@@ -32,7 +32,7 @@
             </list>
         </field>
     </record>
-    <!--    Kanban view of hr_payslip_run-->
+    <!--    Kanban views of hr_payslip_run-->
     <record id="hr_payslip_run_view_kanban" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.kanban</field>
         <field name="model">hr.payslip.run</field>
@@ -71,7 +71,7 @@
             </kanban>
         </field>
     </record>
-<!--   Form view of hr_payslip_run-->
+<!--   Form views of hr_payslip_run-->
     <record id="hr_payslip_run_view_form" model="ir.ui.view">
         <field name="name">hr.payslip.run.view.form</field>
         <field name="model">hr.payslip.run</field>

@@ -39,7 +39,7 @@ class EmployeeBroadFactor(models.Model):
         """Calculate broad factor that depends on employee leaves"""
         tools.drop_view_if_exists(self._cr, 'hr_employee_broad_factor')
         self._cr.execute("""
-            create or replace view hr_employee_broad_factor as (
+            create or replace views hr_employee_broad_factor as (
                 select
                     e.id, e.name, count(h.*) as no_of_occurrence,
                     sum(h.number_of_days) as no_of_days,

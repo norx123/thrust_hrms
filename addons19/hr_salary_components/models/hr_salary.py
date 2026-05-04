@@ -43,31 +43,31 @@ class HrVersion(models.Model):
 
     hra_percent = fields.Float(string="HRA %", digits=(5, 2))
 
-    uniform_allowance = fields.Monetary(string="Uniform Allowance", currency_field='currency_id')
+    uniform_allowance = fields.Monetary(string="Uniform Allowance", currency_field='currency_id', compute="_compute_uniform_allowance",store=True)
     uniform_allowance_percent = fields.Float(string="Uniform Allowance %", digits=(5, 2))
 
-    children_edu_allowance = fields.Monetary(string="Children Education Allowance", currency_field='currency_id')
+    children_edu_allowance = fields.Monetary(string="Children Education Allowance", currency_field='currency_id',compute = "_compute_children_edu_allowance",store = True)
     children_edu_allowance_percent = fields.Float(string="Children Education Allowance %", digits=(5, 2))
 
-    helper_allowance = fields.Monetary(string="Helper Allowance", currency_field='currency_id')
+    helper_allowance = fields.Monetary(string="Helper Allowance", currency_field='currency_id',compute = "_compute_helper_allowance",store = True)
     helper_allowance_percent = fields.Float(string="Helper Allowance %", digits=(5, 2))
 
-    medical_reimbursement = fields.Monetary(string="Medical Reimbursement", currency_field='currency_id')
+    medical_reimbursement = fields.Monetary(string="Medical Reimbursement", currency_field='currency_id',compute = "_compute_medical_reimbursement",store = True)
     medical_reimbursement_percent = fields.Float(string="Medical Reimbursement %", digits=(5, 2))
 
-    transport_allowance = fields.Monetary(string="Transport Allowance", currency_field='currency_id')
+    transport_allowance = fields.Monetary(string="Transport Allowance", currency_field='currency_id',compute = "_compute_transport_allowance",store = True)
     transport_allowance_percent = fields.Float(string="Transport Allowance %", digits=(5, 2))
 
-    special_allowance = fields.Monetary(string="Special Allowance", currency_field='currency_id')
+    special_allowance = fields.Monetary(string="Special Allowance", currency_field='currency_id',compute = "_compute_special_allowance",store = True)
     special_allowance_percent = fields.Float(string="Special Allowance %", digits=(5, 2))
 
     gross_salary = fields.Monetary(string="Gross Salary", currency_field='currency_id')
 
     # ── Employer Contribution ────────────────────────────────────────────────
-    pf_employer = fields.Monetary(string="PF Employer", currency_field='currency_id')
+    pf_employer = fields.Monetary(string="PF Employer", currency_field='currency_id',compute = "_compute_pf_employer",store = True)
     pf_employer_percent = fields.Float(string="PF Employer %", digits=(5, 2))
 
-    esi_employer = fields.Monetary(string="ESI Employer", currency_field='currency_id')
+    esi_employer = fields.Monetary(string="ESI Employer", currency_field='currency_id',compute = "_compute_esi_employer",store = True)
     esi_employer_percent = fields.Float(string="ESI Employer %", digits=(5, 2))
 
     # ltc = fields.Monetary(string="Gratuity", currency_field='currency_id')
@@ -77,10 +77,10 @@ class HrVersion(models.Model):
     bonus_percent = fields.Float(string="Bonus %", digits=(5, 2))
 
     # ── Deductions ───────────────────────────────────────────────────────────
-    pf_employee = fields.Monetary(string="PF Employee", currency_field='currency_id')
+    pf_employee = fields.Monetary(string="PF Employee", currency_field='currency_id',compute = "_compute_pf_employee",store = True)
     pf_employee_percent = fields.Float(string="PF Employee %", digits=(5, 2))
 
-    esi_employee = fields.Monetary(string="ESI Employee", currency_field='currency_id')
+    esi_employee = fields.Monetary(string="ESI Employee", currency_field='currency_id',compute = "_compute_esi_employee",store = True)
     esi_employee_percent = fields.Float(string="ESI Employee %", digits=(5, 2))
 
     tds = fields.Monetary(string="TDS", currency_field='currency_id')
@@ -140,45 +140,107 @@ class HrVersion(models.Model):
         for rec in self:
             rec.hra = (rec.basic or 0.0) * (rec.hra_percent or 0.0) / 100.0
 
-    @api.onchange('uniform_allowance_percent', 'monthly_ctc')
-    def _onchange_uniform_allowance_percent(self):
-        if self.uniform_allowance_percent:
-            self.uniform_allowance = self._pct_of_ctc(self.uniform_allowance_percent)
+    # @api.onchange('uniform_allowance_percent', 'monthly_ctc')
+    # def _onchange_uniform_allowance_percent(self):
+    #     if self.uniform_allowance_percent:
+    #         self.uniform_allowance = self._pct_of_ctc(self.uniform_allowance_percent)
 
-    @api.onchange('children_edu_allowance_percent', 'monthly_ctc')
-    def _onchange_children_edu_allowance_percent(self):
-        if self.children_edu_allowance_percent:
-            self.children_edu_allowance = self._pct_of_ctc(self.children_edu_allowance_percent)
+    @api.depends('uniform_allowance_percent','basic')
+    def _compute_uniform_allowance(self):
+        for rec in self:
+            rec.uniform_allowance = (rec.uniform_allowance_percent or 0.0) * (rec.basic or 0.0) / 100.0
 
-    @api.onchange('helper_allowance_percent', 'monthly_ctc')
-    def _onchange_helper_allowance_percent(self):
-        if self.helper_allowance_percent:
-            self.helper_allowance = self._pct_of_ctc(self.helper_allowance_percent)
+    # @api.onchange('children_edu_allowance_percent', 'monthly_ctc')
+    # def _onchange_children_edu_allowance_percent(self):
+    #     if self.children_edu_allowance_percent:
+    #         self.children_edu_allowance = self._pct_of_ctc(self.children_edu_allowance_percent)
 
-    @api.onchange('medical_reimbursement_percent', 'monthly_ctc')
-    def _onchange_medical_reimbursement_percent(self):
-        if self.medical_reimbursement_percent:
-            self.medical_reimbursement = self._pct_of_ctc(self.medical_reimbursement_percent)
+    @api.depends('children_edu_allowance_percent', 'basic')  # fixed spelling
+    def _compute_children_edu_allowance(self):
+        for rec in self:# fixed method name
+            rec.children_edu_allowance = (rec.children_edu_allowance_percent or 0.0) * (rec.basic or 0.0) / 100.0  # fixed field name
 
-    @api.onchange('transport_allowance_percent', 'monthly_ctc')
-    def _onchange_transport_allowance_percent(self):
-        if self.transport_allowance_percent:
-            self.transport_allowance = self._pct_of_ctc(self.transport_allowance_percent)
+    # @api.onchange('helper_allowance_percent', 'monthly_ctc')
+    # def _onchange_helper_allowance_percent(self):
+    #     if self.helper_allowance_percent:
+    #         self.helper_allowance = self._pct_of_ctc(self.helper_allowance_percent)
 
-    @api.onchange('special_allowance_percent', 'monthly_ctc')
-    def _onchange_special_allowance_percent(self):
-        if self.special_allowance_percent:
-            self.special_allowance = self._pct_of_ctc(self.special_allowance_percent)
+    @api.depends('helper_allowance_percent', 'basic')
+    def _compute_helper_allowance(self):
+        for rec in self:
+            rec.helper_allowance  = (rec.helper_allowance_percent or 0.0) * (rec.basic or 0.0) / 100.0
 
-    @api.onchange('pf_employer_percent', 'monthly_ctc')
-    def _onchange_pf_employer_percent(self):
-        if self.pf_employer_percent:
-            self.pf_employer = self._pct_of_ctc(self.pf_employer_percent)
+    # @api.onchange('medical_reimbursement_percent', 'monthly_ctc')
+    # def _onchange_medical_reimbursement_percent(self):
+    #     if self.medical_reimbursement_percent:
+    #         self.medical_reimbursement = self._pct_of_ctc(self.medical_reimbursement_percent)
 
-    @api.onchange('esi_employer_percent', 'monthly_ctc')
-    def _onchange_esi_employer_percent(self):
-        if self.esi_employer_percent:
-            self.esi_employer = self._pct_of_ctc(self.esi_employer_percent)
+    @api.depends('medical_reimbursement_percent','basic')
+    def _compute_medical_reimbursement(self):
+        for rec in self:
+            rec.medical_reimbursement = (rec.medical_reimbursement_percent or 0.0) * (rec.basic or 0.0) /100.00
+
+    # @api.onchange('transport_allowance_percent', 'monthly_ctc')
+    # def _onchange_transport_allowance_percent(self):
+    #     if self.transport_allowance_percent:
+    #         self.transport_allowance = self._pct_of_ctc(self.transport_allowance_percent)
+
+    @api.depends('transport_allowance_percent','basic')
+    def _compute_transport_allowance(self):
+        for rec in self:
+            rec.transport_allowance = (rec.transport_allowance_percent or 0.0) * (rec.basic or 0.0) / 100.0
+
+    # @api.onchange('special_allowance_percent', 'monthly_ctc')
+    # def _onchange_special_allowance_percent(self):
+    #     if self.special_allowance_percent:
+    #         self.special_allowance = self._pct_of_ctc
+
+    @api.depends(
+        'monthly_gross',
+        'basic',
+        'hra',
+        'uniform_allowance',
+        'children_edu_allowance',
+        'helper_allowance',
+        'medical_reimbursement',
+        'transport_allowance'
+    )
+    def _compute_special_allowance(self):
+        for rec in self:
+            total = (
+                (rec.basic or 0.0) +
+                (rec.hra or 0.0) +
+                (rec.uniform_allowance or 0.0) +
+                (rec.children_edu_allowance or 0.0) +
+                (rec.helper_allowance or 0.0) +
+                (rec.medical_reimbursement or 0.0) +
+                (rec.transport_allowance or 0.0)
+            )
+            rec.special_allowance = max((rec.monthly_gross or 0.0)  - total,0.0)
+
+    # @api.onchange('pf_employer_percent', 'monthly_ctc')
+    # def _onchange_pf_employer_percent(self):
+    #     if self.pf_employer_percent:
+    #         self.pf_employer = self._pct_of_ctc(self.pf_employer_percent)
+
+    @api.depends('pf_employer_percent' ,'monthly_gross')
+    def _compute_pf_employer(self):
+        for rec in self:
+            base = min(rec.monthly_gross or 0.0, 15000)
+            rec.pf_employer = (base) * (rec.pf_employer_percent) / 100.0
+
+    # @api.onchange('esi_employer_percent', 'monthly_ctc')
+    # def _onchange_esi_employer_percent(self):
+    #     if self.esi_employer_percent:
+    #         self.esi_employer = self._pct_of_ctc(self.esi_employer_percent)
+
+    @api.depends('esi_employer_percent','monthly_gross')
+    def _compute_esi_employer(self):
+        for rec in self:
+            if rec.monthly_gross <=21000:
+                rec.esi_employer = (rec.monthly_gross or 0.0) * (rec.esi_employer_percent) /100.0
+            else:
+                rec.esi_employer = 0.0
 
     @api.onchange('ltc_percent', 'monthly_ctc')
     def _onchange_ltc_percent(self):
@@ -190,15 +252,30 @@ class HrVersion(models.Model):
         if self.bonus_percent:
             self.bonus = self._pct_of_ctc(self.bonus_percent)
 
-    @api.onchange('pf_employee_percent', 'monthly_ctc')
-    def _onchange_pf_employee_percent(self):
-        if self.pf_employee_percent:
-            self.pf_employee = self._pct_of_ctc(self.pf_employee_percent)
+    # @api.onchange('pf_employee_percent', 'monthly_ctc')
+    # def _onchange_pf_employee_percent(self):
+    #     if self.pf_employee_percent:
+    #         self.pf_employee = self._pct_of_ctc(self.pf_employee_percent)
 
-    @api.onchange('esi_employee_percent', 'monthly_ctc')
-    def _onchange_esi_employee_percent(self):
-        if self.esi_employee_percent:
-            self.esi_employee = self._pct_of_ctc(self.esi_employee_percent)
+    @api.depends('pf_employee_percent','monthly_gross')
+    def _compute_pf_employee(self):
+        for rec in self:
+            base = min(rec.monthly_gross or 0.0, 15000)
+            rec.pf_employee= (base) * (rec.pf_employee_percent) / 100.0
+
+    # @api.onchange('esi_employee_percent', 'monthly_ctc')
+    # def _onchange_esi_employee_percent(self):
+    #     if self.esi_employee_percent:
+    #         self.esi_employee = self._pct_of_ctc(self.esi_employee_percent)
+
+    @api.depends('esi_employee_percent','monthly_gross')
+    def _compute_esi_employee(self):
+        for rec in self:
+            if rec.monthly_gross < 21000:
+                rec.esi_employee = (rec.monthly_gross) * (rec.esi_employee_percent)/ 100.0
+            else:
+                rec.esi_employee = 0.0
+
 
     @api.onchange('tds_percent', 'monthly_ctc')
     def _onchange_tds_percent(self):
@@ -269,3 +346,5 @@ class HrEmployee(models.Model):
 
     ltc = fields.Monetary(related='version_id.ltc', store=True, readonly=False)
     ltc_percent = fields.Float(related='version_id.ltc_percent', store=True, readonly=False)
+
+

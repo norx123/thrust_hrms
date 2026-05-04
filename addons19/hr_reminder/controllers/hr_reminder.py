@@ -62,7 +62,7 @@ class Reminders(http.Controller):
     @http.route('/hr_reminder/reminder_active', type='json', auth="public")
     def reminder_active(self, **kwargs):
         """Returns the current reminder when clicked in
-        view button in the systray."""
+        views button in the systray."""
         value = []
         for reminder in request.env['hr.reminder'].sudo().search([
             ('name', '=', kwargs.get('reminder_name'))]):

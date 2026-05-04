@@ -1,5 +1,5 @@
 <odoo>
-<!--  Hr.leave list view for adding leave duration.  -->
+<!--  Hr.leave list views for adding leave duration.  -->
     <record id="broad_factor_sort_order" model="ir.ui.view">
         <field name="name">hr.holidays.view.tree</field>
         <field name="model">hr.leave</field>

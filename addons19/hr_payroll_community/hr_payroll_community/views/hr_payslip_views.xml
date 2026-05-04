@@ -19,7 +19,7 @@
             </list>
         </field>
     </record>
-    <!-- Payslip kanban view -->
+    <!-- Payslip kanban views -->
     <record id="hr_payslip_view_kanban" model="ir.ui.view">
         <field name="name">hr.payslip.view.kanban</field>
         <field name="model">hr.payslip</field>

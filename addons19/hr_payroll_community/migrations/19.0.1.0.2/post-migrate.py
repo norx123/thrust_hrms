@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Post-migration: clear ir.ui.view cache so new fields are visible
+# Post-migration: clear ir.ui.views cache so new fields are visible
 
 
 def migrate(cr, version):

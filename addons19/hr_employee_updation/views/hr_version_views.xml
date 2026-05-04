@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- This view extends the 'hr.version' list view to include the 'notice_days' field -->
+    <!-- This views extends the 'hr.version' list views to include the 'notice_days' field -->
     <record id="hr_version_list_view" model="ir.ui.view">
         <field name="name">hr.version.list_view.inherit.hr.employee.updation</field>
         <field name="model">hr.version</field>
