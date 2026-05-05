@@ -1,9 +1,6 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15
-    container_name: odoo19_db_local
     restart: always
     environment:
       POSTGRES_DB: postgres
@@ -13,12 +10,12 @@ services:
       - odoo19-db-data:/var/lib/postgresql/data
 
   web:
-    image: odoo:19.0
-    container_name: odoo19_app_local
+    build: .
+    image: thrust_hrms-odoo:19.0
     depends_on:
       - db
     ports:
-      - "8081:8069"   # ✅ changed port (no conflict)
+      - "8081:8069"
     environment:
       HOST: db
       USER: odoo
